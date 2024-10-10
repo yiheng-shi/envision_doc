@@ -1,5 +1,3 @@
-
-
 ## 电价管理
 
 ### 导入接口
@@ -67,15 +65,17 @@ body
             "maxLimit": 0.8
         }
     ],
-    "consSite": [{
-        "siteId": "siteId",
-        "beginDate": "20200101",
-        "endDate": "20201231",
-        //fixed/off_grid
-        "type": "off_grid",
-        //type为fixed时，才需要
-        "price": 1.2
-    }]
+    "consSite": [
+        {
+            "siteId": "siteId",
+            "beginDate": "20200101",
+            "endDate": "20201231",
+            //fixed/off_grid
+            "type": "off_grid",
+            //type为fixed时，才需要
+            "price": 1.2
+        }
+    ]
 }
 
 ```
@@ -168,7 +168,12 @@ response
             "type": 1,
             "note": "note",
             "file_path": "file_path",
-            "price_type": "1,2,3,4"
+            "price_type": [
+                "1",
+                "2",
+                "3",
+                "4"
+            ]
         }
     ]
 }
@@ -186,7 +191,6 @@ GET `/bill/tariff/exportSite?siteId=siteId`
 
 GET `/bill/tariff/exportTemplate?types=1,2,3&siteIds=siteId1,siteId2`
 > 1: provinceOffGrid , 2:siteOffGrid , 3: selfCons, 4: consSite
-
 
 ## 电费账单
 
@@ -238,9 +242,11 @@ response
 ```
 
 ### 账单导出接口
+
 GET `/bill/export?id=id&type=quantity`
 
 ### 导入电量确认单接口(本期不做)
+
 POST `/bill/import`
 `content-type: multipart/form-data`
 
