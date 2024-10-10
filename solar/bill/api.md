@@ -99,7 +99,7 @@ response
 {
     "code": "10000",
     "data": {
-        "offGrid": [
+        "offGridSite": [
             {
                 "siteId": "siteId",
                 "price": {
@@ -183,8 +183,8 @@ GET `/bill/tariff/exportSite?siteId=siteId`
 
 ### 模版导出接口
 
-GET `/bill/tariff/exportTemplate?type=1,2,3&siteIds=siteId1,siteId2`
-> 1: siteOffGrid, 2: provinceOffGrid, 3: selfCons, 4: consSite
+GET `/bill/tariff/exportTemplate?types=1,2,3&siteIds=siteId1,siteId2`
+> 1: provinceOffGrid , 2:siteOffGrid , 3: selfCons, 4: consSite
 
 
 ## 电费账单
