@@ -167,8 +167,8 @@ response
             //'1:页面修改 2:导入修改'
             "type": 1,
             "note": "note",
-            "file_path": "file_path",
-            "price_type": [
+            "filePath": "file_path",
+            "priceType": [
                 "1",
                 "2",
                 "3",
