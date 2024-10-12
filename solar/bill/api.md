@@ -53,8 +53,8 @@ body
             "siteId": "siteId",
             "beginDate": "20200101",
             "endDate": "20201231",
-            //fixed/discount
-            "type": "discount",
+            //FIXED("1"),DISCOUNT("2"),
+            "type": "1",
             //type为fixed时，才需要
             "price": 1.2,
             //type为discount时，才需要
@@ -70,8 +70,8 @@ body
             "siteId": "siteId",
             "beginDate": "20200101",
             "endDate": "20201231",
-            //fixed/off_grid
-            "type": "off_grid",
+            //FIXED("1"),OFF_GRID("3"),
+            "type": "3",
             //type为fixed时，才需要
             "price": 1.2
         }
@@ -102,6 +102,7 @@ response
         "offGridSite": [
             {
                 "siteId": "siteId",
+                "siteName": "siteName",
                 "price": {
                     "001": 1.2,
                     "002": 1.3,
@@ -113,6 +114,7 @@ response
         "selfCons": [
             {
                 "siteId": "siteId",
+                "siteName": "siteName",
                 "beginDate": "20200101",
                 "endDate": "20201231",
                 "type": "fixed",
@@ -122,6 +124,7 @@ response
         "consSite": [
             {
                 "siteId": "siteId",
+                "siteName": "siteName",
                 "beginDate": "20200101",
                 "endDate": "20201231",
                 "type": "fixed",
@@ -329,106 +332,117 @@ response
 {
     "code": "10000",
     "data": {
-        "gmt": [
-            {
-                "assetId": "assetId",
-                "scale": 100,
-                "nameI18n": {
-                    "defaultValue": "name",
-                    "i18nValue": {
-                        "zh_CN": "中文",
-                        "en_US": "英文"
+        "quantity": {
+            "gmt": [
+                {
+                    "assetId": "assetId",
+                    "scale": 100,
+                    "nameI18n": {
+                        "defaultValue": "name",
+                        "i18nValue": {
+                            "zh_CN": "中文",
+                            "en_US": "英文"
+                        }
+                    },
+                    "prod": {
+                        "sum": {
+                            "lastValue": 200,
+                            "value": 240,
+                            "quantity": 4000,
+                            //开启了分时电量指标计算才有
+                            "metric": 4000
+                        },
+                        "001": {
+                            "lastValue": 100,
+                            "value": 120,
+                            "quantity": 2000,
+                            "metric": 2000
+                        },
+                        "002": {
+                            "lastValue": 100,
+                            "value": 120,
+                            "quantity": 2000,
+                            "metric": 2000
+                        }
+                    },
+                    "cons": {
+                        "sum": {
+                            "lastValue": 200,
+                            "value": 240,
+                            "quantity": 4000,
+                            "metric": 4000
+                        },
+                        "001": {
+                            "lastValue": 100,
+                            "value": 120,
+                            "quantity": 2000,
+                            "metric": 2000
+                        },
+                        "002": {
+                            "lastValue": 100,
+                            "value": 120,
+                            "quantity": 2000,
+                            "metric": 2000
+                        }
                     }
-                },
+                }
+            ],
+            "emt": [
+                {
+                    "assetId": "assetId",
+                    "scale": 100,
+                    "nameI18n": {
+                        "defaultValue": "name",
+                        "i18nValue": {
+                            "zh_CN": "中文",
+                            "en_US": "英文"
+                        }
+                    },
+                    "prod": {
+                        "sum": {
+                            "lastValue": 200,
+                            "value": 240,
+                            "quantity": 4000
+                        },
+                        "001": {
+                            "lastValue": 100,
+                            "value": 120,
+                            "quantity": 2000
+                        },
+                        "002": {
+                            "lastValue": 100,
+                            "value": 120,
+                            "quantity": 2000
+                        }
+                    }
+                }
+            ],
+            "sumQuantity": {
                 "prod": {
-                    "sum": {
-                        "lastValue": 200,
-                        "value": 240,
-                        "quantity": 4000,
-                        //开启了分时电量指标计算才有
-                        "metric": 4000
-                    },
-                    "001": {
-                        "lastValue": 100,
-                        "value": 120,
-                        "quantity": 2000,
-                        "metric": 2000
-                    },
-                    "002": {
-                        "lastValue": 100,
-                        "value": 120,
-                        "quantity": 2000,
-                        "metric": 2000
-                    }
+                    "sum": 8000,
+                    "001": 2000,
+                    "002": 6000
                 },
                 "cons": {
-                    "sum": {
-                        "lastValue": 200,
-                        "value": 240,
-                        "quantity": 4000,
-                        "metric": 4000
-                    },
-                    "001": {
-                        "lastValue": 100,
-                        "value": 120,
-                        "quantity": 2000,
-                        "metric": 2000
-                    },
-                    "002": {
-                        "lastValue": 100,
-                        "value": 120,
-                        "quantity": 2000,
-                        "metric": 2000
-                    }
-                }
-            }
-        ],
-        "emt": [
-            {
-                "assetId": "assetId",
-                "scale": 100,
-                "nameI18n": {
-                    "defaultValue": "name",
-                    "i18nValue": {
-                        "zh_CN": "中文",
-                        "en_US": "英文"
-                    }
+                    "sum": 8000,
+                    "001": 2000,
+                    "002": 6000
                 },
-                "prod": {
-                    "sum": {
-                        "lastValue": 200,
-                        "value": 240,
-                        "quantity": 4000
-                    },
-                    "001": {
-                        "lastValue": 100,
-                        "value": 120,
-                        "quantity": 2000
-                    },
-                    "002": {
-                        "lastValue": 100,
-                        "value": 120,
-                        "quantity": 2000
-                    }
+                "onGrid": {
+                    "sum": 8000,
+                    "001": 2000,
+                    "002": 6000
                 }
             }
-        ],
-        "sumQuantity": {
-            "prod": {
-                "sum": 8000,
-                "001": 2000,
-                "002": 6000
-            },
-            "cons": {
-                "sum": 8000,
-                "001": 2000,
-                "002": 6000
-            },
-            "onGrid": {
-                "sum": 8000,
-                "001": 2000,
-                "002": 6000
-            }
+        },
+        "info": {
+            "productionName": "电量单名称",
+            "billName": "账单名称",
+            "meteringUser": "username",
+            "note": "note",
+            "yyyymm": "202001",
+            "lastMeteringTime": "2020-01-01 00:00",
+            "meteringTime": "2020-02-01 00:00"
         }
     }
 }
@@ -590,7 +604,15 @@ response
             //自用率
             "selfUseRate": 0.9
         },
-        "note": "note"
+        "info": {
+            "productionName": "电量单名称",
+            "billName": "账单名称",
+            "meteringUser": "username",
+            "note": "note",
+            "yyyymm": "202001",
+            "lastMeteringTime": "2020-01-01 00:00",
+            "meteringTime": "2020-02-01 00:00"
+        }
     }
 }
 ```
