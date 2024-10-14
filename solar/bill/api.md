@@ -137,19 +137,14 @@ response
 
 ### 批量查询是否存在电价配置接口
 
-GET `/bill/tariff/exist?siteIds=siteId1,siteId2&begin=202001&end=202002`
+GET `/bill/tariff/exist?siteId=siteId1&begin=20200101&end=20200201`
 
 response
 
 ```json5
 {
     "code": "10000",
-    "data": {
-        "site1": {
-            "202001": true,
-            "202002": true
-        }
-    }
+    "data": true
 }
 ```
 
@@ -238,6 +233,7 @@ response
             "yyyymm": "202001",
             "lastMeteringTime": "2020-01-01 00:00",
             "meteringTime": "2020-02-01 00:00",
+            "hasTariff": true
         }
     ]
     // 根据场站、月份排序
