@@ -30,7 +30,7 @@ body
                 "002": 1.3,
                 "003": 0.5
             },
-            "yyyyMM": "202001",
+            "yyyyMM": "2020-01",
             //1:单一制, 2:两部制
             "billing_mode": "1",
             //1:20kV以下, 2:35kV, 3:110kV, 4:220kV以上
@@ -45,14 +45,14 @@ body
                 "002": 1.3,
                 "003": 0.5
             },
-            "yyyyMM": "202001"
+            "yyyyMM": "2020-01"
         }
     ],
     "selfCons": [
         {
             "siteId": "siteId",
-            "beginDate": "20200101",
-            "endDate": "20201231",
+            "beginDate": "2020-01-01",
+            "endDate": "2020-12-31",
             //FIXED("1"),DISCOUNT("2"),
             "type": "1",
             //type为fixed时，才需要
@@ -68,8 +68,8 @@ body
     "consSite": [
         {
             "siteId": "siteId",
-            "beginDate": "20200101",
-            "endDate": "20201231",
+            "beginDate": "2020-01-01",
+            "endDate": "2020-12-31",
             //FIXED("1"),OFF_GRID("3"),
             "type": "3",
             //type为fixed时，才需要
@@ -108,15 +108,15 @@ response
                     "002": 1.3,
                     "003": 0.5
                 },
-                "yyyyMM": "202001"
+                "yyyyMM": "2020-01"
             }
         ],
         "selfCons": [
             {
                 "siteId": "siteId",
                 "siteName": "siteName",
-                "beginDate": "20200101",
-                "endDate": "20201231",
+                "beginDate": "2020-01-01",
+                "endDate": "2020-12-31",
                 "type": "fixed",
                 "price": 1.2
             }
@@ -125,8 +125,8 @@ response
             {
                 "siteId": "siteId",
                 "siteName": "siteName",
-                "beginDate": "20200101",
-                "endDate": "20201231",
+                "beginDate": "2020-01-01",
+                "endDate": "2020-12-31",
                 "type": "fixed",
                 "price": 1.2
             }
@@ -137,7 +137,7 @@ response
 
 ### 批量查询是否存在电价配置接口
 
-GET `/bill/tariff/exist?siteId=siteId1&begin=20200101&end=20200201`
+GET `/bill/tariff/exist?siteId=siteId1&begin=2020-01-01&end=2020-02-01`
 
 response
 
@@ -201,7 +201,7 @@ body
 ```json5
 {
     "siteId": "siteId",
-    "yyyymm": "202001",
+    "yyyymm": "2020-01",
     "lastMeteringTime": "2020-01-01 00:00",
     "meteringTime": "2020-02-01 00:00",
     "note": "note"
@@ -219,7 +219,7 @@ response
 
 ### 账单列表接口
 
-GET `/bill/list?siteIds=id1,id2&begin=202001&end=202002`
+GET `/bill/list?siteIds=id1,id2&begin=2020-01&end=2020-02`
 
 response
 
@@ -230,7 +230,7 @@ response
         {
             "id": 1,
             "siteId": "siteId",
-            "yyyymm": "202001",
+            "yyyymm": "2020-01",
             "lastMeteringTime": "2020-01-01 00:00",
             "meteringTime": "2020-02-01 00:00",
             "hasTariff": true
@@ -436,7 +436,7 @@ response
             "billName": "账单名称",
             "meteringUser": "username",
             "note": "note",
-            "yyyymm": "202001",
+            "yyyymm": "2020-01",
             "lastMeteringTime": "2020-01-01 00:00",
             "meteringTime": "2020-02-01 00:00"
         }
@@ -605,7 +605,7 @@ response
             "billName": "账单名称",
             "meteringUser": "username",
             "note": "note",
-            "yyyymm": "202001",
+            "yyyymm": "2020-01",
             "lastMeteringTime": "2020-01-01 00:00",
             "meteringTime": "2020-02-01 00:00"
         }
