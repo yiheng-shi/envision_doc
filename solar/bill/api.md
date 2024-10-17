@@ -494,3 +494,7 @@ POST `/bill/quantity/regenerate?id=id`
 ### 重新生成账单
 
 POST `/bill/fee/regenerate?id=id`
+
+### 删除账单
+
+POST `/bill/del?id=id`
