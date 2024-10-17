@@ -253,7 +253,7 @@ body: `id, file`
 
 ### 编辑账单接口
 
-POST `/bill/edit?id=id&updateTariff=true`
+POST `/bill/edit?id=id`
 
 body
 
@@ -318,135 +318,9 @@ body
 }
 ```
 
-### 电量确认单详情
+### 账单详情
 
-GET `/bill/quantity?id=id`
-
-response
-
-```json5
-{
-    "code": "10000",
-    "data": {
-        "quantity": {
-            "gmt": [
-                {
-                    "assetId": "assetId",
-                    "scale": 100,
-                    "nameI18n": {
-                        "defaultValue": "name",
-                        "i18nValue": {
-                            "zh_CN": "中文",
-                            "en_US": "英文"
-                        }
-                    },
-                    "prod": {
-                        "sum": {
-                            "lastValue": 200,
-                            "value": 240,
-                            "quantity": 4000,
-                            //开启了分时电量指标计算才有
-                            "metric": 4000
-                        },
-                        "001": {
-                            "lastValue": 100,
-                            "value": 120,
-                            "quantity": 2000,
-                            "metric": 2000
-                        },
-                        "002": {
-                            "lastValue": 100,
-                            "value": 120,
-                            "quantity": 2000,
-                            "metric": 2000
-                        }
-                    },
-                    "cons": {
-                        "sum": {
-                            "lastValue": 200,
-                            "value": 240,
-                            "quantity": 4000,
-                            "metric": 4000
-                        },
-                        "001": {
-                            "lastValue": 100,
-                            "value": 120,
-                            "quantity": 2000,
-                            "metric": 2000
-                        },
-                        "002": {
-                            "lastValue": 100,
-                            "value": 120,
-                            "quantity": 2000,
-                            "metric": 2000
-                        }
-                    }
-                }
-            ],
-            "emt": [
-                {
-                    "assetId": "assetId",
-                    "scale": 100,
-                    "nameI18n": {
-                        "defaultValue": "name",
-                        "i18nValue": {
-                            "zh_CN": "中文",
-                            "en_US": "英文"
-                        }
-                    },
-                    "prod": {
-                        "sum": {
-                            "lastValue": 200,
-                            "value": 240,
-                            "quantity": 4000
-                        },
-                        "001": {
-                            "lastValue": 100,
-                            "value": 120,
-                            "quantity": 2000
-                        },
-                        "002": {
-                            "lastValue": 100,
-                            "value": 120,
-                            "quantity": 2000
-                        }
-                    }
-                }
-            ],
-            "sumQuantity": {
-                "prod": {
-                    "sum": 8000,
-                    "001": 2000,
-                    "002": 6000
-                },
-                "cons": {
-                    "sum": 8000,
-                    "001": 2000,
-                    "002": 6000
-                },
-                "onGrid": {
-                    "sum": 8000,
-                    "001": 2000,
-                    "002": 6000
-                }
-            }
-        },
-        "info": {
-            "productionName": "电量单名称",
-            "billName": "账单名称",
-            "meteringUser": "username",
-            "note": "note",
-            "yyyymm": "2020-01",
-            "lastMeteringTime": "2020-01-01 00:00",
-            "meteringTime": "2020-02-01 00:00"
-        }
-    }
-}
-```
-
-### 电费结算单详情
-
-GET `/bill/fee?id=id`
+GET `/bill/detail?id=id`
 
 response
 
@@ -612,3 +486,11 @@ response
     }
 }
 ```
+
+### 重新生成电量单
+
+POST `/bill/quantity/regenerate?id=id`
+
+### 重新生成账单
+
+POST `/bill/fee/regenerate?id=id`
